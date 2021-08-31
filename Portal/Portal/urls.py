@@ -20,4 +20,5 @@ urlpatterns = [
     path('diskusija/', include('diskutovanje.urls')),
     path('ankete/', include('ankete.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
