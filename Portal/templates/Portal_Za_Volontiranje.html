@@ -5,26 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
+        {% load static %}
         {% block title %}
         Početna
         {% endblock %}
     </title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
+
     {% block body %}
 
     {% endblock %}
     <div class="header">
         <h1>Portal za volontiranje
-            
         </h1>
     </div> 
     <div class="navigation">
         <a href="#">O nama</a>
-        <a id="right1" href="Sign_In.html">Prijavi se</a>
-        <a id="right2" href="{% url 'login' %}">Registuj se</a>
-        <a id="right3" href="Discussion.html">Diskusije</a>
+        <a id="right1" href="{% url 'login' %}">Prijavi se</a>
+        <a id="right2" href="">Registuj se</a>
+        <a id="right3" href="">Diskusije</a>
     </div>
     <div class="content">
             <div class="column side">
@@ -48,9 +49,9 @@
             </div>
             <div class="column side">
                 <h3>Oglasi</h3>
-                <a href="https://rs.jooble.org/posao-volonter"><img src="Slike/Slika1.jpg" alt=""></a>
-                <a href="https://iss.rs/sr_Latn/iss-posts-and-add-for-volunteers_p1008.html"><img src="Slike/Slika2.jpg"></a>
-                <a href="https://educons.edu.rs/poziv-za-volontiranje-na-medjunarodnoj-studentskoj-nedelji-u-beogradu/"><img src="Slike/Slika3.jpg"></a>               
+                <a href="https://rs.jooble.org/posao-volonter"><img src="{% static 'Slike/Slika1.jpg' %}" alt=""></a>
+                <a href="https://iss.rs/sr_Latn/iss-posts-and-add-for-volunteers_p1008.html"><img src="{% static 'Slike/Slika2.jpg' %}"></a>
+                <a href="https://educons.edu.rs/poziv-za-volontiranje-na-medjunarodnoj-studentskoj-nedelji-u-beogradu/"><img src="{% static 'Slike/Slika3.jpg' %}"></a>
             </div>
     </div>
     <h4><center>Pratite nas na našim društvenim mrežama: <a href="https://www.facebook.com/Escape-Room-Vr%C5%A1ac-422596161261484">facebook</a> i <a href="https://www.instagram.com/escape_room_vrsac/">instagram</a></center></h4>
