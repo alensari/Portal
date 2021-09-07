@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'diskutovanje.apps.DiskutovanjeConfig',
-    'ankete.apps.AnketeConfig'
+    'ankete.apps.AnketeConfig',
+    'oglasi'
 ]
 
 MIDDLEWARE = [

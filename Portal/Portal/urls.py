@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView
-from django.views.generic.base import TemplateView
+from oglasi.views import PortalTemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path("login/", LoginView.as_view(template_name = "registration/login.html"), name = "login"),
-    path("", TemplateView.as_view(template_name = "Portal_Za_Volontiranje.html"), name = "index"),
+    path("", PortalTemplateView.as_view(template_name = "Portal_Za_Volontiranje.html"), name = "index"),
     path("oglasi/", include('oglasi.urls'))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
