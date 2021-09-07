@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
 class Diskusija(models.Model):
     naziv = models.CharField(max_length=200)
     datum = models.DateTimeField()
