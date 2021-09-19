@@ -5,7 +5,7 @@ class Forma_postavljanja_oglasa(forms.ModelForm):
     class Meta:
         model = Oglas
 
-        fields = ["naslov", "tekst", "vidljivost", "autor",
+        fields = ["naslov", "tekst", "vidljivost",
                   #"datum",
                   ];
 
@@ -27,8 +27,6 @@ class Forma_postavljanja_oglasa(forms.ModelForm):
             self.fields[fieldname].label = 'Текст'
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
-        for fieldname in ['autor']:
-            self.fields[fieldname].label = 'Aутор'
 
         # for fieldname in ['datum']:
         #    self.fields[fieldname].label = 'Датум'

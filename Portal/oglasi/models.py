@@ -15,4 +15,4 @@ class Oglas(models.Model):
     vidljivost = models.PositiveSmallIntegerField(default=1, choices=opcije)
     za_brisanje = models.BooleanField(default = False)
     arhiviran = models.BooleanField(default = False)
-    autor = models.ForeignKey(User, on_delete = models.CASCADE)
+    autor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
