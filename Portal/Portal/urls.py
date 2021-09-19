@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path("login/", LoginView.as_view(template_name = "registration/login.html"), name = "login"),
-    path("", PortalTemplateView.as_view(template_name = "Portal_Za_Volontiranje.html"), name = "index"),
-    path("oglasi/", include('oglasi.urls'))
+    path("", PortalTemplateView.as_view(template_name = "index.html"), name = "index"),
+    path("oglasi/", include(('oglasi.urls', 'oglasi'), namespace="oglasi"))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
