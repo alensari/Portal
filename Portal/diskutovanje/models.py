@@ -11,7 +11,7 @@ class Stavka(models.Model):
     kategorija = 'X'  # ovde treba iz sifarnika uzeti vrednost
     autor = models.CharField(max_length=100)
     mogucnosti = (
-        ('1', 'Svi korisnici '),
+        ('1', 'Svi korisnici'),
         ('2', 'Volonteri koji imaju istu oblast interesovanja '),
         ('3', 'Svi volonteri'),
     )

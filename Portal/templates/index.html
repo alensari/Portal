@@ -54,10 +54,17 @@ Početna stranica
                 <div class="col">
                     <h3>Тренутно има {{ oglasi.count }} огласа.</h3>
                 </div>
+                {% if not user.is_authenticated %}
+                <div>
+                    <center><a class="btn-danger user btn" href="{% url 'login' %}">Немате права на постављање огласа бре! <br>Прво се пријавите...</a>
+                    </center>
+                </div>
+                {% else %}
                 <div>
                     <center><a class="btn-success user btn" href="{% url 'oglasi:postavljanjeOglasa' %}">Постави оглас</a>
                     </center>
                 </div>
+                {% endif %}
                 <table class="table">
                     <thead>
                     <tr>
@@ -66,6 +73,7 @@ Početna stranica
                     </tr>
                     </thead>
                     <tbody>
+                    {% if user.is_authenticated %}
                     {% for oglas in oglasi %}
                     <tr>
                         <td>
@@ -74,6 +82,16 @@ Početna stranica
                         <td>{{ oglas.datum }}</td>
                     </tr>
                     {% endfor %}
+                    {% else %}
+                    {% for oglas in oglasi_javni %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'oglasi:detaljiOglasa' oglas.id %}">{{ oglas.naslov }}</a>
+                        </td>
+                        <td>{{ oglas.datum }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
                     </tbody>
                 </table>
             </div>

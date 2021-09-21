@@ -10,10 +10,12 @@ class PortalTemplateView(TemplateView):
         broj_diskusija = Diskusija.objects.count()
         diskusije = Diskusija.objects.all()
         oglasi = Oglas.objects.all()
+        oglasi_javni = Oglas.objects.filter(vidljivost = 1)
         context = {
             'broj_diskusija': broj_diskusija,
             'diskusije': diskusije,
             'oglasi': oglasi,
+            'oglasi_javni': oglasi_javni,
         }
         return context
 
