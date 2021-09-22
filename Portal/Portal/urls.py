@@ -22,12 +22,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('diskusija/', include('diskutovanje.urls')),
-    path('ankete/', include('ankete.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path("login/", LoginView.as_view(template_name = "registration/login.html"), name = "login"),
+    
+    #path('diskusija/', include('diskutovanje.urls')),
+    path('ankete/', include('ankete.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
+    #path("login/", LoginView.as_view(template_name = "registration/login.html"), name = "login"),
     path("", PortalTemplateView.as_view(template_name = "index.html"), name = "index"),
     path("oglasi/", include(('oglasi.urls', 'oglasi'), namespace="oglasi"))
+    path('', include('account.urls')),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+              + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))

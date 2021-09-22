@@ -21,11 +21,37 @@
         <h1>Portal za volontiranje
         </h1>
     </div> 
-    <div class="navigation">
-        <a href="O_nama.html">O nama</a>
-        <a id="right1" href="{% url 'login' %}">Prijavi se</a>
-        <a id="right2" href="">Registuj se</a>
-    </div>
+<nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="{% url 'index' %}">Индекс</a>
+    <a class="navbar-brand" href="{% url 'index' %}">
+        {% if user.volonter %}
+
+        {{ user.first_name }} {{ user.last_name }}
+        {% elif user.organizacija %}
+        {{ user.organizacija.naziv }}
+        {% endif %}
+    </a>
+    {% if user.is_authenticated %}
+    <span>
+            <a class="user btn btn-info" href="{% url 'logout' %}"> Одјави се</a>
+        </span>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Улогуј се</a>
+    </li>
+    <li class="nav-item inline dropdown mr-2">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Региструј
+            се</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'register' %}">Као волонтер</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item user btn btn-info" href="{% url 'org_register' %}">Као организација</a></li>
+        </ul>
+    </li>
+    {% endif %}
+</nav>
     <div class="content">
             <div class="column side">
                 <h3>Prava i obaveze</h3>
